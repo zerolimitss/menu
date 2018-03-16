@@ -67,6 +67,7 @@ class SiteController extends Controller
     {
         $model = new IngredientsForm();
         $ingredients = Ingredient::find()->where("available='1'")->all();
+        $ingredients = ArrayHelper::map($ingredients,'id','name');
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             $dishes = Dish::find()->joinWith('ingredients')->where(['in','ingredients.id', $model->ingredients])->andWhere(['ingredients.available'=>'1'])->all();
             $all = [];

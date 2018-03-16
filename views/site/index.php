@@ -14,7 +14,7 @@ $this->title = 'My Yii Application';
         <h1>Menu!</h1>
         <p class="lead">Select ingredients</p>
         <?php $form = ActiveForm::begin() ?>
-        <?= $form->field($model, 'ingredients')->checkboxList(\yii\helpers\ArrayHelper::map($ingredients,'id','name')) ?>
+        <?= $form->field($model, 'ingredients')->checkboxList($ingredients) ?>
         <?= Html::submitButton('Find dishes', ['class' => 'btn btn-lg btn-success']) ?>
         <?php ActiveForm::end(); ?>
     </div>
